@@ -93,7 +93,7 @@ class MyWebServer(socketserver.BaseRequestHandler):
                     self.headers = 'HTTP/1.1 404 Not Found\r\n\r\n'
                     self.content = ""
                 else:
-                
+
                     if not os.path.exists(fpath+"/www"+self.line):
                         # if os.path.exists(fpath+ "/www"+ self.line) == fpath:
 

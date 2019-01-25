@@ -1,8 +1,0 @@
-q1: SOCK_STREAM is used to specify a tcp socket in python
-q2: the difference between a client socket and a server socket is
-that you don't have to bind a socket in client socket where as in server you have too and listen as well
-q3: set a socket option by s.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
-
-q4: connected by the clients ip and the incoming port
-
-q5: It returns None after sending the HTTP request.

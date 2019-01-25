@@ -18,6 +18,11 @@ server.py contains contributions from:
 * Eddie Antonio Santos
 * Jackson Z Chang
 * Mandy Meindersma
+* Calvin LEE
+
+Collaboration from:
+* Simon Chau
+  * Talked about Requirements for the assignment and how web servers worked
 
 But the server.py example is derived from the python documentation
 examples thus some of the code is Copyright © 2001-2013 Python

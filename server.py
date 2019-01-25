@@ -40,17 +40,17 @@ class MyWebServer(socketserver.BaseRequestHandler):
 
     def parse_req(self,req):
         request_text = req.splitlines()[0].decode("utf-8")
-        print(request_text)
+        # print(request_text)
         #request_text = request_text.rstrip('\r\n ')
         #print(request_text)
         self.request_method, self.line, self.version = request_text.split()
-        print(str(self.request_method),"\n ",self.line, "\n",self.version,'\n' )
+        # print(str(self.request_method),"\n ",self.line, "\n",self.version,'\n' )
         if self.request_method == "GET":
             # print(1)
             # self.response = 'HTTP/1.1 405 Method Not Allowed\nContent-Type:text/html\n'
             # return self.response
             fpath = os.getcwd()
-            print(fpath,11)
+            # print(fpath,11)
             if self.line == "/":
 
                 index = open(fpath+"/www/index.html","r")
@@ -99,11 +99,9 @@ class MyWebServer(socketserver.BaseRequestHandler):
                     # print(fpath,22 )
                     # print(npath,33)
                     # print(npath.startswith(fpath))
-                    print(self.line[-1].isalnum())
-                    if self.line[-1].isalnum() or self.line[-1]=="."  and os.path.isdir(fpath+"/www"+ self.line) :
-                        self.headers = 'HTTP/1.1 301 Moved Permanently\r\n\r\n'
-                        self.content = ""
-                        return self.headers+self.content
+                    # print(self.line[-1].isalnum())
+
+
                     if not npath.startswith(fpath):
                         self.headers = 'HTTP/1.1 404 Page Not Found\r\n\r\n'
                         self.content = ""
@@ -113,6 +111,10 @@ class MyWebServer(socketserver.BaseRequestHandler):
 
 
                         self.headers = 'HTTP/1.1 404 Page Not Found\r\n\r\n'
+                        self.content = ""
+                        return self.headers+self.content
+                    if self.line[-1].isalnum() or self.line[-1]=="."  and os.path.isdir(fpath+"/www"+ self.line) :
+                        self.headers = 'HTTP/1.1 301 Moved Permanently\r\n\r\n'
                         self.content = ""
                         return self.headers+self.content
                     return self.headers+self.content

@@ -1,0 +1,9 @@
+q1 cgi.print_environ will print all environment variables and allow us to inspect them like that
+  2nd-way access os.environ
+q2 QUERY_STRING can be used to get the query parameter full_data
+q3 HTTP_USER_AGENT contains info about the user's browser
+q4 posted data come to the
+ i can get the cgi data by cgi.FieldStorage
+ q5  Set-Cookie is the http header syntax to set a cookie from the server_port
+ q6  cookie; will send it back
+ q7 a cookie is a piece of data that will send and store user data in a browser

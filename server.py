@@ -1,7 +1,7 @@
     #  coding: utf-8
 import socketserver
 import os
-# Copyright 2013 Abram Hindle, Eddie Antonio Santos
+# Copyright 2019 Abram Hindle, Eddie Antonio Santos,Calvin LEE
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -50,7 +50,7 @@ class MyWebServer(socketserver.BaseRequestHandler):
             # self.response = 'HTTP/1.1 405 Method Not Allowed\nContent-Type:text/html\n'
             # return self.response
             fpath = os.getcwd()
-            # print(fpath,11)
+            print(fpath,11)
             if self.line == "/":
 
                 index = open(fpath+"/www/index.html","r")
@@ -93,9 +93,24 @@ class MyWebServer(socketserver.BaseRequestHandler):
                     self.headers = 'HTTP/1.1 404 Not Found\r\n\r\n'
                     self.content = ""
                 else:
-
+                    # print(self.line)
+                    npath = os.path.abspath(fpath+"/www"+self.line)
+                    # npath = os.getcwd()
+                    # print(fpath,22 )
+                    # print(npath,33)
+                    # print(npath.startswith(fpath))
+                    print(self.line[-1].isalnum())
+                    if self.line[-1].isalnum() or self.line[-1]=="."  and os.path.isdir(fpath+"/www"+ self.line) :
+                        self.headers = 'HTTP/1.1 301 Moved Permanently\r\n\r\n'
+                        self.content = ""
+                        return self.headers+self.content
+                    if not npath.startswith(fpath):
+                        self.headers = 'HTTP/1.1 404 Page Not Found\r\n\r\n'
+                        self.content = ""
+                        return self.headers+self.content
                     if not os.path.exists(fpath+"/www"+self.line):
                         # if os.path.exists(fpath+ "/www"+ self.line) == fpath:
+
 
                         self.headers = 'HTTP/1.1 404 Page Not Found\r\n\r\n'
                         self.content = ""

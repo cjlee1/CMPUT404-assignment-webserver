@@ -17,9 +17,13 @@ server.py contains contributions from:
 * Abram Hindle
 * Eddie Antonio Santos
 * Jackson Z Chang
+* Calvin LEE
+
+server.py contains collaboration from:
+* Simon Chau
+  * Discussed requirements for the Assignment and how web servers worked
 
 But the server.py example is derived from the python documentation
 examples thus some of the code is Copyright © 2001-2013 Python
 Software Foundation; All Rights Reserved under the PSF license (GPL
 compatible) http://docs.python.org/2/library/socketserver.html
-
